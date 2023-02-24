@@ -1,27 +1,16 @@
-
-import Landing from './components/Landing';
-
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes
-} from 'react-router-dom';
-import Messages from './components/Messages';
+import Messages from './Messages';
 import { useState } from 'react';
-import Input from './components/Input';
+import Input from './Input';
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
-
-
-
-function App() {
-
+const ChatRoom=(props)=>{
   const [drone,setDrone]=useState();
   const [messages,setMessages]=useState([]);
-  const [user,setUser]=useState({
-    username: 'randomName()',
-    color: 'red'
-  })
+  // const [user,setUser]=useState({
+  //   username: 'randomName()',
+  //   color: 'red'
+  // })
 
 
   function randomName() {
@@ -38,8 +27,9 @@ function App() {
 
 
   useEffect(()=>{
+    console.log("compoemnta se renderala",props.member);
     const drone = new window.Scaledrone("JJJs22nmbknRK1Q2",{
-      data:user,
+      data:props.member,
     });
     setDrone(drone);
   },[])
@@ -52,7 +42,8 @@ function App() {
         if(error){
           return console.error(error);
         }
-        setUser({...user,id:drone.clientId})
+        console.log(props);
+        props.setMember({...props.member,id:drone.clientId})
 
         room.on('data', (data,member)=>{
           setMessages((oldArray)=>[...oldArray,{member, text:data}])
@@ -75,31 +66,20 @@ function App() {
     }
   }
 
-  return (
-    // <Router>
-      <div className="App">
+  // user.username="Mate"
+  // console.log('user je:',user);
 
-        <Messages
+return(
+  <>
+    <Messages
           messages={messages}
-          currentMember={user}
+          currentMember={props.member}
         /> 
-        <Input
+    <Input
           onSendMessage={onSendMessage}
-        />
-
-
-      {/* <Header />       
-      <main>
-        <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/ChatRoom" element={<ChatRoom />} />
-        </Routes>
-      </main>
-        <Footer /> */}
-      </div>    
-    // </Router>
-
-  );
+    /> 
+  </>
+)
 }
 
-export default App;
+export default ChatRoom;

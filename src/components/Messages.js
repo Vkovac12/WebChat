@@ -8,6 +8,7 @@ const Messages=(props)=>{
 
     function renderMessage(message) {
         console.log(message);
+        console.log(props);
         const {member, text} = message;
         const {currentMember} = props;
         const messageFromMe = member.id === currentMember.id;

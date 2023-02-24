@@ -97,3 +97,86 @@ button {
   border-radius: 8px;
   margin-left: 10px;
 }
+
+.App .start-page{
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  margin-top: 20px;
+  align-items: center;
+  /* justify-content: center; */
+  
+  
+}
+
+.logo-vale{
+  margin-top: 50px;
+  width: 300px;
+  height: 150px;
+  left: 645px;
+  top: 137px;
+}
+
+.first-text-frontpage{
+  width: 595px;
+  margin-top: 30px;
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 36px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.second-text-frontpage{
+
+  margin-top: 30px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #4F5665;
+}
+
+ 
+  
+input.chat-name{
+  margin-top: 50px;
+  width: 300px;
+  height: 39px;
+  padding: 5px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid gray;
+  flex-grow: 1;
+}
+
+.all-avatars{
+  margin-top: 30px;
+  display: flex;
+  justify-content:space-between;
+}
+
+.avatar{
+  width: 120px;
+  height: 170px;
+  border: 1px solid gray;
+  margin-left: 10px;
+}
+
+.start-button{
+  margin-top: 20px;
+  background-color: #FFBF00;
+  padding: 18px 48px;
+  width: 294px;
+  height: 61px;
+  border-radius: 100px;
+}
+
+
