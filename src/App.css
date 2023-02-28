@@ -30,7 +30,7 @@
 }
 
 .Messages-message.currentMember {
-  /*justify-content: flex-end;*/
+  justify-content: flex-start;
   flex-direction: row-reverse;
   text-align: right;
 }
@@ -78,6 +78,7 @@ form {
   justify-content: space-between;
   max-width: 900px;
   margin: 0 auto 40px;
+ 
 }
 
 input {
@@ -98,15 +99,11 @@ button {
   margin-left: 10px;
 }
 
-.App .start-page{
+.start-page{
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
-  margin-top: 20px;
+  margin-bottom: 150px;
   align-items: center;
-  /* justify-content: center; */
-  
-  
 }
 
 .logo-vale{
@@ -180,3 +177,7 @@ input.chat-name{
 }
 
 
+/* .flex-container{
+  display: flex;
+  flex-direction: column-reverse;
+} */

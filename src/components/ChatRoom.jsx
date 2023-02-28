@@ -3,10 +3,12 @@ import { useState } from 'react';
 import Input from './Input';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Scrollbars } from 'react-custom-scrollbars-2';
 
 const ChatRoom=(props)=>{
   const [drone,setDrone]=useState();
   const [messages,setMessages]=useState([]);
+  const [appstart, setAppstart]=useState(false)
   // const [user,setUser]=useState({
   //   username: 'randomName()',
   //   color: 'red'
@@ -42,6 +44,7 @@ const ChatRoom=(props)=>{
         if(error){
           return console.error(error);
         }
+        setAppstart(true);
         console.log(props);
         props.setMember({...props.member,id:drone.clientId})
 
@@ -58,7 +61,7 @@ const ChatRoom=(props)=>{
 
 
   const onSendMessage=(message)=>{
-    if(message){
+    if(message && appstart){
       drone.publish({
         room:"observable-room",
         message
@@ -69,15 +72,45 @@ const ChatRoom=(props)=>{
   // user.username="Mate"
   // console.log('user je:',user);
 
+//   const onScrollHandler = () => {
+//     const acceptableScrollOffset = 20
+//     const scrollHeight = scrollbarRef.current.getScrollHeight()
+//     const scrollTop = scrollbarRef.current.getScrollTop()
+//     const clientHeight = scrollbarRef.current.getClientHeight()
+
+//     if (scrollHeight - scrollTop - clientHeight < acceptableScrollOffset) {
+//         setToBeScrolled(true)
+//     }
+//     else {
+//         setToBeScrolled(false)
+//     }
+// }
+
+//   useEffect(() => {
+//     if (toBeScrolled) {
+//       scrollbarRef.current.scrollToBottom()
+//     }
+//   }, [messages])
+
 return(
   <>
-    <Messages
-          messages={messages}
-          currentMember={props.member}
-        /> 
-    <Input
-          onSendMessage={onSendMessage}
-    /> 
+  <div className="flex-container">
+    
+      <Messages
+      messages={messages}
+      currentMember={props.member}
+      /> 
+      <Input
+      onSendMessage={onSendMessage}
+      /> 
+    
+    {/* <Scrollbars
+    style={{ width: '100%', height: '100%' }}
+    >
+      <div>haloo
+      </div>
+    </Scrollbars> */}
+    </div>
   </>
 )
 }
