@@ -13,13 +13,18 @@ import { useState } from 'react';
 
 function App() {
   const [member, setMember]=useState({
-    username: "tgzgtz",
-    color: 'red'
+    username: "",
+    color: 'Yellow'
   })
 
   const handleNameChange = (e) => {
     setMember(oldMember => ({...oldMember, username: e.target.value}))
 
+  }
+
+  const handleAvatarChange =(e)=>{
+    setMember(oldMember => ({...oldMember, color: e.target.src}))
+    e.target.style.border = '4px solid gray'
   }
 
 
@@ -33,6 +38,8 @@ function App() {
           element={
             <Landing 
               handleNameChange={handleNameChange}
+              handleAvatarChange={handleAvatarChange}
+              member={member}
             />} />
           <Route path="/ChatRoom" 
           element={

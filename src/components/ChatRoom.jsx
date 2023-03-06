@@ -9,10 +9,7 @@ const ChatRoom=(props)=>{
   const [drone,setDrone]=useState();
   const [messages,setMessages]=useState([]);
   const [appstart, setAppstart]=useState(false)
-  // const [user,setUser]=useState({
-  //   username: 'randomName()',
-  //   color: 'red'
-  // })
+ 
 
 
   function randomName() {
@@ -29,15 +26,19 @@ const ChatRoom=(props)=>{
 
 
   useEffect(()=>{
-    console.log("compoemnta se renderala",props.member);
-    const drone = new window.Scaledrone("JJJs22nmbknRK1Q2",{
+    
+      console.log("compoemnta se renderala",props.member);
+      const drone = new window.Scaledrone("JJJs22nmbknRK1Q2",{
       data:props.member,
-    });
-    setDrone(drone);
+      });
+      setDrone(drone);
+      
+    
   },[])
 
   useEffect(()=>{
     if(drone){
+      
       const room=drone.subscribe("observable-room");
 
       drone.on('open',error=>{
@@ -52,6 +53,7 @@ const ChatRoom=(props)=>{
           setMessages((oldArray)=>[...oldArray,{member, text:data}])
         });
       });
+    // }
     }
   },[drone])
 

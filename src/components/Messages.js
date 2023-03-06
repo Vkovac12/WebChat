@@ -16,10 +16,13 @@ const Messages=(props)=>{
           "Messages-message currentMember" : "Messages-message";
         return (
           <li className={className}>
-            <span
+            {/* <span
               className="avatar"
               style={{backgroundColor: member.clientData.color}}
-            />
+            > */}
+            <img className="avatar" src={member.clientData.color} alt=""/>
+            {/* </span> */}
+            
             <div className="Message-content">
               <div className="username">
                 {member.clientData.username}

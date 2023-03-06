@@ -44,8 +44,8 @@
 }
 
 .Messages-message > .avatar {
-  height: 35px;
-  width: 35px;
+  height: 50px;
+  width: 50px;
   border-radius: 50%;
   display: inline-block;
   margin: 0 10px -10px;
@@ -102,26 +102,26 @@ button {
 .start-page{
   display: flex;
   flex-direction: column;
-  margin-bottom: 150px;
+  margin-bottom: 50px;
   align-items: center;
 }
 
 .logo-vale{
-  margin-top: 50px;
-  width: 300px;
-  height: 150px;
-  left: 645px;
-  top: 137px;
+  /* margin-top: 50px; */
+  width: 400px;
+  height: 300px;
+  /* left: 645px;
+  top: 137px; */
 }
 
 .first-text-frontpage{
   width: 595px;
-  margin-top: 30px;
+  /* margin-top: 30px; */
   font-family: 'Roboto Slab';
   font-style: normal;
   font-weight: 400;
   font-size: 36px;
-  line-height: 36px;
+  line-height: 26px;
   display: flex;
   align-items: center;
   text-align: center;
@@ -155,20 +155,25 @@ input.chat-name{
 }
 
 .all-avatars{
-  margin-top: 30px;
+  margin-top: 60px;
   display: flex;
   justify-content:space-between;
 }
 
 .avatar{
-  width: 120px;
-  height: 170px;
-  border: 1px solid gray;
+  width: 100px;
+  height: 100px;
+  /* border: 1px solid gray; */
   margin-left: 10px;
+  border-radius: 50%;
+}
+
+.avatar:hover {
+  opacity: 0.5;
 }
 
 .start-button{
-  margin-top: 20px;
+  margin-top: 50px;
   background-color: #FFBF00;
   padding: 18px 48px;
   width: 294px;
