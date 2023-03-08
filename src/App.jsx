@@ -1,4 +1,3 @@
-
 import Landing from './components/Landing';
 
 import {
@@ -30,6 +29,8 @@ function App() {
 
 
   return (
+    <>
+    
      <Router>
       <div className="App">
       <main>
@@ -52,7 +53,9 @@ function App() {
         
       </div>    
     </Router>
-
+    
+    
+    </>
   );
 }
 

@@ -1,4 +1,3 @@
-// import {Component} from "react";
 import React from "react";
 import { useState } from "react";
 
@@ -25,7 +24,7 @@ const Input=(props)=>{
           placeholder="Enter your message and press ENTER"
           autofocus="true"
         />
-        <button>Send</button>
+        <button>➤</button>
       </form>
     </div>
     )

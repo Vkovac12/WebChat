@@ -1,16 +1,29 @@
-.App {
+.flex-constainer {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
+  
 }
 
-.App-header {
-  background-color: #262626;
+header {
+  background-color: #FFBF00;
   overflow: visible;
   width: 100%;
-  text-align: center;
-  color: white;
+  height: 72px;
+  padding: 5px;
+}
+
+header img{
+  height:53px;
+  text-align: left;
+}
+
+.class-header{
+  max-width: 900px;
+  padding-top: 10px;
+  margin: 0 auto;
+  
 }
 
 .Messages-list {
@@ -63,36 +76,39 @@
   max-width: 400px;
   margin: 0;
   border-radius: 12px;
-  background-color: cornflowerblue;
+  background-color: #949494;
   color: white;
   display: inline-block;
 }
 
 .currentMember > .Message-content .text {
-  background-color: orangered;
+  background-color: #ffbf00be;
 }
 
 form {
   display: flex;
   width: 100%;
+  height: 100%;
   justify-content: space-between;
   max-width: 900px;
-  margin: 0 auto 40px;
- 
+  margin: 0px auto 40px; 
+  flex-wrap: wrap;
+
+  
 }
 
 input {
   padding: 5px;
   font-size: 16px;
   border-radius: 8px;
-  border: 1px solid orangered;
+  border: 1px solid #ffbf00be;
   flex-grow: 1;
 }
 
 button {
   padding: 5px 10px;
   font-size: 16px;
-  background-color: orangered;
+  background-color: #ffbf00be;
   color: white;
   border: none;
   border-radius: 8px;
@@ -107,16 +123,12 @@ button {
 }
 
 .logo-vale{
-  /* margin-top: 50px; */
   width: 400px;
   height: 300px;
-  /* left: 645px;
-  top: 137px; */
 }
 
 .first-text-frontpage{
   width: 595px;
-  /* margin-top: 30px; */
   font-family: 'Roboto Slab';
   font-style: normal;
   font-weight: 400;
@@ -163,7 +175,6 @@ input.chat-name{
 .avatar{
   width: 100px;
   height: 100px;
-  /* border: 1px solid gray; */
   margin-left: 10px;
   border-radius: 50%;
 }
@@ -174,7 +185,7 @@ input.chat-name{
 
 .start-button{
   margin-top: 50px;
-  background-color: #FFBF00;
+  background-color: #ffbf00;
   padding: 18px 48px;
   width: 294px;
   height: 61px;

@@ -2,14 +2,16 @@ import Messages from './Messages';
 import { useState } from 'react';
 import Input from './Input';
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { Scrollbars } from 'react-custom-scrollbars-2';
+import nextId from "react-id-generator";
+import { useNavigate } from 'react-router-dom';
+import ChatLogo2 from "../images/ChatLogo2.png"
+
 
 const ChatRoom=(props)=>{
   const [drone,setDrone]=useState();
   const [messages,setMessages]=useState([]);
   const [appstart, setAppstart]=useState(false)
- 
+  const navigate=useNavigate();
 
 
   function randomName() {
@@ -26,19 +28,22 @@ const ChatRoom=(props)=>{
 
 
   useEffect(()=>{
-    
-      console.log("compoemnta se renderala",props.member);
+      if (props.member.username){
       const drone = new window.Scaledrone("JJJs22nmbknRK1Q2",{
       data:props.member,
       });
       setDrone(drone);
+      }
+      else{
+       navigate("/")
+      }
       
     
   },[])
 
   useEffect(()=>{
     if(drone){
-      
+    
       const room=drone.subscribe("observable-room");
 
       drone.on('open',error=>{
@@ -50,16 +55,17 @@ const ChatRoom=(props)=>{
         props.setMember({...props.member,id:drone.clientId})
 
         room.on('data', (data,member)=>{
-          setMessages((oldArray)=>[...oldArray,{member, text:data}])
+          
+          setMessages((oldArray)=>[...oldArray,{member, text:data, id:nextId()}])
         });
       });
     // }
     }
   },[drone])
 
-  useEffect(()=>{
-    console.log('messages',messages);
-  },[messages])
+  // useEffect(()=>{
+  //   console.log('messages',messages);
+  // },[messages])
 
 
   const onSendMessage=(message)=>{
@@ -96,23 +102,23 @@ const ChatRoom=(props)=>{
 
 return(
   <>
+  <header>
+    <div className="class-header">
+    <img 
+            src={ChatLogo2} 
+            alt="Logo" />
+    </div>
+  </header>
   <div className="flex-container">
-    
       <Messages
       messages={messages}
       currentMember={props.member}
       /> 
-      <Input
+      
+    </div>
+    <Input
       onSendMessage={onSendMessage}
       /> 
-    
-    {/* <Scrollbars
-    style={{ width: '100%', height: '100%' }}
-    >
-      <div>haloo
-      </div>
-    </Scrollbars> */}
-    </div>
   </>
 )
 }
