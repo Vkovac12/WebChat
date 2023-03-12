@@ -37,13 +37,11 @@ const ChatRoom=(props)=>{
       else{
        navigate("/")
       }
-      
-    
+       
   },[])
 
   useEffect(()=>{
     if(drone){
-    
       const room=drone.subscribe("observable-room");
 
       drone.on('open',error=>{
@@ -51,22 +49,13 @@ const ChatRoom=(props)=>{
           return console.error(error);
         }
         setAppstart(true);
-        console.log(props);
         props.setMember({...props.member,id:drone.clientId})
-
         room.on('data', (data,member)=>{
-          
           setMessages((oldArray)=>[...oldArray,{member, text:data, id:nextId()}])
         });
       });
-    // }
     }
   },[drone])
-
-  // useEffect(()=>{
-  //   console.log('messages',messages);
-  // },[messages])
-
 
   const onSendMessage=(message)=>{
     if(message && appstart){
@@ -77,48 +66,26 @@ const ChatRoom=(props)=>{
     }
   }
 
-  // user.username="Mate"
-  // console.log('user je:',user);
-
-//   const onScrollHandler = () => {
-//     const acceptableScrollOffset = 20
-//     const scrollHeight = scrollbarRef.current.getScrollHeight()
-//     const scrollTop = scrollbarRef.current.getScrollTop()
-//     const clientHeight = scrollbarRef.current.getClientHeight()
-
-//     if (scrollHeight - scrollTop - clientHeight < acceptableScrollOffset) {
-//         setToBeScrolled(true)
-//     }
-//     else {
-//         setToBeScrolled(false)
-//     }
-// }
-
-//   useEffect(() => {
-//     if (toBeScrolled) {
-//       scrollbarRef.current.scrollToBottom()
-//     }
-//   }, [messages])
-
 return(
   <>
   <header>
     <div className="class-header">
     <img 
-            src={ChatLogo2} 
-            alt="Logo" />
+      src={ChatLogo2} 
+      alt="Logo" />
     </div>
   </header>
+
   <div className="flex-container">
-      <Messages
+    <Messages
       messages={messages}
       currentMember={props.member}
-      /> 
-      
-    </div>
+    /> 
+  </div>
+
     <Input
       onSendMessage={onSendMessage}
-      /> 
+    /> 
   </>
 )
 }

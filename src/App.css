@@ -1,7 +1,7 @@
-.flex-constainer {
+.App {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content:space-between;
   height: 100vh;
   
 }
@@ -92,9 +92,7 @@ form {
   justify-content: space-between;
   max-width: 900px;
   margin: 0px auto 40px; 
-  flex-wrap: wrap;
-
-  
+  flex-wrap: wrap;  
 }
 
 input {
@@ -153,8 +151,6 @@ button {
   color: #4F5665;
 }
 
- 
-  
 input.chat-name{
   margin-top: 50px;
   width: 300px;
@@ -192,8 +188,6 @@ input.chat-name{
   border-radius: 100px;
 }
 
-
-/* .flex-container{
-  display: flex;
-  flex-direction: column-reverse;
-} */
+.flex-container{
+  height: 700px;
+}

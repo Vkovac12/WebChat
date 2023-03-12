@@ -1,5 +1,4 @@
 import Landing from './components/Landing';
-
 import {
   BrowserRouter as Router,
   Route,
@@ -9,7 +8,6 @@ import './App.css';
 import ChatRoom from './components/ChatRoom';
 import { useState } from 'react';
 
-
 function App() {
   const [member, setMember]=useState({
     username: "",
@@ -18,7 +16,6 @@ function App() {
 
   const handleNameChange = (e) => {
     setMember(oldMember => ({...oldMember, username: e.target.value}))
-
   }
 
   const handleAvatarChange =(e)=>{
@@ -26,12 +23,9 @@ function App() {
     e.target.style.border = '4px solid gray'
   }
 
-
-
   return (
     <>
-    
-     <Router>
+    <Router>
       <div className="App">
       <main>
         <Routes>
@@ -50,11 +44,8 @@ function App() {
             />} />
         </Routes>
       </main>
-        
       </div>    
     </Router>
-    
-    
     </>
   );
 }
